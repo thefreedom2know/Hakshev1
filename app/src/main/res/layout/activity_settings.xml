@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_settings" />
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_unit" />
+
+        <LinearLayout
+            android:id="@+id/formUnit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveUnit"
+            style="@style/HkButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImport"
+            style="@style/HkButtonOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/import_csv" />
+
+        <TextView
+            style="@style/HkBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/import_csv_hint"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_display" />
+
+        <RadioGroup
+            android:id="@+id/rgTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbSystem"
+                style="@style/HkBody"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/theme_system" />
+
+            <RadioButton
+                android:id="@+id/rbDay"
+                style="@style/HkBody"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/theme_day" />
+
+            <RadioButton
+                android:id="@+id/rbNight"
+                style="@style/HkBody"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/theme_night" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_security" />
+
+        <TextView
+            android:id="@+id/tvPinState"
+            style="@style/HkBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSetPin"
+            style="@style/HkButtonOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/set_pin" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClearPin"
+            style="@style/HkButtonOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_pin" />
+
+        <LinearLayout
+            android:id="@+id/formSecurity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveWipe"
+            style="@style/HkButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWipeAll"
+            style="@style/HkButtonOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/wipe_all"
+            android:textColor="@color/hk_alert" />
+    </LinearLayout>
+</ScrollView>

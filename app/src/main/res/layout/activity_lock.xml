@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        style="@style/HkTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="32sp" />
+
+    <TextView
+        style="@style/HkBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_pin" />
+
+    <EditText
+        android:id="@+id/etPin"
+        style="@style/HkBody"
+        android:layout_width="220dp"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:importantForAutofill="no"
+        android:inputType="numberPassword"
+        android:maxLength="12"
+        android:textSize="28sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUnlock"
+        style="@style/HkButton"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="@string/unlock" />
+</LinearLayout>

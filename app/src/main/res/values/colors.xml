@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Day: high contrast for strong sunlight -->
+    <color name="hk_bg">#FFFFFF</color>
+    <color name="hk_surface">#F1F1EA</color>
+    <color name="hk_text">#000000</color>
+    <color name="hk_primary">#2E4A1F</color>
+    <color name="hk_on_primary">#FFFFFF</color>
+    <color name="hk_outline">#000000</color>
+    <color name="hk_alert">#B00020</color>
+    <color name="hk_ok">#1B5E20</color>
+    <color name="hk_warn">#B26A00</color>
+</resources>

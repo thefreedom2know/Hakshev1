@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvAlertBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/hk_alert"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_personal" />
+
+        <LinearLayout
+            android:id="@+id/formPersonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            style="@style/HkBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_squad" />
+
+        <Spinner
+            android:id="@+id/spSquad"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <TextView
+            style="@style/HkBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_status" />
+
+        <Spinner
+            android:id="@+id/spStatus"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_medical" />
+
+        <LinearLayout
+            android:id="@+id/formMedical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExpiry"
+            style="@style/HkButtonOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_equipment" />
+
+        <LinearLayout
+            android:id="@+id/formEquipment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            style="@style/HkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_counters" />
+
+        <TextView
+            android:id="@+id/tvNoCounters"
+            style="@style/HkBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/soldier_no_counters" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/countersList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddCounter"
+            style="@style/HkButtonOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_counter_to_soldier" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/HkButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/save" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            style="@style/HkButtonOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_soldier"
+            android:textColor="@color/hk_alert" />
+    </LinearLayout>
+</ScrollView>

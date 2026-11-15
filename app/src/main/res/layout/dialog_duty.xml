@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Spinner
+        android:id="@+id/spSoldier"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <Spinner
+        android:id="@+id/spDuty"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTime"
+        style="@style/HkButtonOutlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:id="@+id/cbTomorrow"
+        style="@style/HkBody"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/tomorrow" />
+
+    <LinearLayout
+        android:id="@+id/formDuty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+</LinearLayout>

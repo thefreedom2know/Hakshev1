@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hakshev</string>
+    <string name="default_commander">מפקד</string>
+    <string name="default_squads">כיתה א\', כיתה ב\', כיתה ג\'</string>
+
+    <!-- general -->
+    <string name="save">שמור</string>
+    <string name="saved">נשמר</string>
+    <string name="cancel">ביטול</string>
+    <string name="delete">מחק</string>
+    <string name="yes">כן</string>
+    <string name="close">סגור</string>
+    <string name="share">שתף</string>
+    <string name="copied">הדוח הועתק</string>
+    <string name="ok">תקין</string>
+    <string name="no_soldiers">אין חיילים ברשימה</string>
+    <string name="no_squad">ללא כיתה/פלגה</string>
+    <string name="filter_all">הכל</string>
+    <string name="name_required">חובה להזין שם</string>
+    <string name="n_soldiers">%1$d חיילים</string>
+
+    <!-- statuses -->
+    <string name="status_present">נוכח</string>
+    <string name="status_sick">גימלים</string>
+    <string name="status_duty">תורנות</string>
+    <string name="status_leave">יציאה</string>
+    <string name="status_problem">בעייתי</string>
+
+    <!-- dashboard -->
+    <string name="dashboard_title">תמונת מצב</string>
+    <string name="metric_headcount">סד"כ נוכח</string>
+    <string name="metric_counters">ספירות</string>
+    <string name="metric_alerts">התראות</string>
+    <string name="alerts_title">חריגים</string>
+    <string name="no_alerts">אין חריגים כרגע</string>
+    <string name="quick_actions">פעולות מהירות</string>
+    <string name="new_inspection">מסדר חדש</string>
+    <string name="copy_report">העתק דוח לוואטסאפ</string>
+    <string name="screens_title">מסכים</string>
+    <string name="nav_roster">סד"כ וחיילים</string>
+    <string name="nav_counters">ספירות</string>
+    <string name="nav_duties">שמירות ותורנויות</string>
+    <string name="nav_inspections">מסדרים ורשימות בדיקה</string>
+    <string name="nav_settings">הגדרות</string>
+    <string name="alert_exemption">פטור של %1$s מסתיים עד %2$s</string>
+
+    <!-- reports -->
+    <string name="report_full">דוח מלא (סד"כ + ספירות)</string>
+    <string name="report_headcount_title">דוח מצב סד"כ</string>
+    <string name="report_counters_title">דוח ספירות</string>
+    <string name="report_total_present">נוכחים: %1$d מתוך %2$d</string>
+    <string name="report_not_present">לא נוכחים</string>
+    <string name="report_alerts">חריגים</string>
+
+    <!-- counters -->
+    <string name="counters_hint">ספירה היא כל דבר שרוצים לספור: מימיות, שעות ביציאה, מבחנים שעברו ועוד. כל ספירה נקבעת לפי תקופה, ולמי שמשתתף בה.</string>
+    <string name="counters_empty">עדיין אין ספירות. לחץ "ספירה חדשה" ובחר הצעה או הגדר בעצמך.</string>
+    <string name="counter_summary">משתתפים: %1$d · סה"כ בתקופה: %2$s</string>
+    <string name="new_counter">ספירה חדשה</string>
+    <string name="edit_counter">ערוך הגדרות</string>
+    <string name="counter_suggestions_title">הצעות לספירה</string>
+    <string name="counter_custom">ספירה אחרת (הגדרה עצמית)</string>
+    <string name="label_counter_name">שם הספירה</string>
+    <string name="label_counter_unit">יחידה (למשל: שעות). לא חובה</string>
+    <string name="label_counter_target">יעד לכל חייל בתקופה (0 = בלי יעד)</string>
+    <string name="label_period">כל כמה זמן הספירה מתאפסת</string>
+    <string name="period_day">יום</string>
+    <string name="period_week">שבוע (מיום ראשון)</string>
+    <string name="period_two_weeks">שבועיים</string>
+    <string name="period_month">חודש</string>
+    <string name="period_total">מצטבר, בלי איפוס</string>
+    <string name="period_all_time">כל התקופות</string>
+    <string name="period_range">התקופה הנוכחית: %1$s</string>
+    <string name="previous_period">בתקופה הקודמת: %1$s</string>
+    <string name="counter_hint">+ ו- מוסיפים או מורידים 1. לחיצה על שם: כמות אחרת והערה. לחיצה ארוכה: היסטוריה והסרה מהספירה.</string>
+    <string name="plus_all">+1 לכולם</string>
+    <string name="confirm_plus_all">להוסיף 1 לכל %1$d החיילים בספירה?</string>
+    <string name="add_members">הוסף חיילים</string>
+    <string name="members_all">כל מי שעוד לא בספירה (%1$d)</string>
+    <string name="members_squad">כל %1$s (%2$d)</string>
+    <string name="members_manual">בחירה ידנית…</string>
+    <string name="no_members">אין חיילים בספירה. לחץ "הוסף חיילים".</string>
+    <string name="no_more_soldiers">כל החיילים כבר בספירה</string>
+    <string name="copy_counter_report">העתק דוח ספירה</string>
+    <string name="confirm_delete_counter">למחוק את הספירה "%1$s" ואת כל הרישומים שלה? אי אפשר לשחזר.</string>
+    <string name="label_amount">כמות (אפשר שלילית)</string>
+    <string name="label_reason">הערה / סיבה</string>
+    <string name="no_history">אין רישומים עדיין</string>
+    <string name="remove_from_counter">הסר מהספירה</string>
+    <string name="confirm_delete_entry">למחוק את הרישום?</string>
+    <string-array name="counter_presets">
+        <item>מימיות|DAY|4|מימיות</item>
+        <item>שעות ביציאה|TOTAL|0|שעות</item>
+        <item>שמירות נוספות|WEEK|0|</item>
+        <item>מבחנים שעברו|TOTAL|0|</item>
+        <item>עונשים והערות משמעת|TOTAL|0|</item>
+        <item>נוכחות בשיעורים|WEEK|0|</item>
+    </string-array>
+
+    <!-- roster -->
+    <string name="roster_count">מוצגים %1$d מתוך %2$d</string>
+    <string name="bulk_present">סמן נוכחות לכל המוצגים</string>
+    <string name="add_soldier">הוסף חייל</string>
+    <string name="confirm_bulk_present">לסמן %1$d חיילים כנוכחים?</string>
+    <string name="badge_allergy">אלרגיה</string>
+    <string name="badge_exemption">פטור</string>
+
+    <!-- soldier profile -->
+    <string name="new_soldier">חייל חדש</string>
+    <string name="section_personal">פרטים אישיים</string>
+    <string name="section_medical">רפואה ופטורים</string>
+    <string name="section_equipment">ציוד וצל"ם</string>
+    <string name="section_counters">ספירות של החייל</string>
+    <string name="soldier_no_counters">החייל עדיין לא משתתף באף ספירה.</string>
+    <string name="save_first_for_counters">שמור את החייל כדי להוסיף לו ספירות.</string>
+    <string name="add_counter_to_soldier">הוסף ספירה לחייל</string>
+    <string name="label_name">שם מלא</string>
+    <string name="label_personal_number">מספר אישי</string>
+    <string name="label_phone">טלפון</string>
+    <string name="label_parent_phone">טלפון הורים / איש קשר לחירום</string>
+    <string name="label_shoe">מידת נעליים</string>
+    <string name="label_uniform">מידת מדים</string>
+    <string name="label_squad">כיתה/פלגה</string>
+    <string name="label_status">סטטוס</string>
+    <string name="label_allergies">אלרגיות (תיאור קצר בלבד)</string>
+    <string name="label_exemptions">פטורים (למשל: פטור עמידה)</string>
+    <string name="label_meds">זמני נטילת תרופות</string>
+    <string name="label_weapon">מספר אישי של הנשק</string>
+    <string name="label_equipment">ציוד חתום (משקפת, אמר"ל, ציוד מיוחד)</string>
+    <string name="label_notes">הערות הערכה</string>
+    <string name="allergy_banner">⚠ אלרגיה: %1$s</string>
+    <string name="set_exemption_expiry">קבע תאריך תפוגה לפטור</string>
+    <string name="exemption_until">פטור בתוקף עד %1$s (לחיצה ארוכה לניקוי)</string>
+    <string name="delete_soldier">מחק חייל</string>
+    <string name="confirm_delete_soldier">למחוק את %1$s ואת כל הרישומים שלו? אי אפשר לשחזר.</string>
+
+    <!-- duties -->
+    <string name="no_duties">אין שיבוצים קרובים</string>
+    <string name="add_duty">שבץ שמירה / תורנות</string>
+    <string name="fairness_title">הוגנות (משמרות ב-7 ימים אחרונים, מהמעט למרובה). לחיצה ארוכה על שיבוץ מוחקת אותו.</string>
+    <string name="confirm_delete_duty">למחוק את השיבוץ?</string>
+    <string name="label_duration_hours">משך המשמרת (שעות)</string>
+    <string name="start_time">שעת התחלה: %1$s</string>
+    <string name="tomorrow">מחר</string>
+    <string name="rest_warning_title">בעיית מנוחה</string>
+    <string name="rest_warning">ל-%1$s יש משמרת סמוכה, והמנוחה בין המשמרות קצרה מ-6 שעות רצופות. לשבץ בכל זאת?</string>
+    <string name="assign_anyway">שבץ בכל זאת</string>
+    <string-array name="duty_names">
+        <item>ש"ג</item>
+        <item>פטרול</item>
+        <item>שמירת מאהל</item>
+        <item>מטבח</item>
+        <item>רס"ר</item>
+    </string-array>
+
+    <!-- inspections -->
+    <string name="start_inspection">התחל מסדר</string>
+    <string name="all_ok">תקין לכולם</string>
+    <string name="finish_inspection">סיים ושמור</string>
+    <string name="new_template">תבנית חדשה</string>
+    <string name="clone_template">שכפל תבנית</string>
+    <string name="inspection_hint">כולם תקינים כברירת מחדל. לחיצה קצרה על חייל: סימון חריגים. לחיצה ארוכה: חזרה ל"תקין".</string>
+    <string name="inspection_history">מסדרים אחרונים</string>
+    <string name="inspection_ok_count">תקינים: %1$d מתוך %2$d</string>
+    <string name="no_inspections">עדיין לא בוצעו מסדרים</string>
+    <string name="label_template_name">שם התבנית</string>
+    <string name="label_template_items">פריטי בדיקה (כל פריט בשורה נפרדת)</string>
+    <string name="copy_suffix">(עותק)</string>
+    <string name="tpl_morning_name">מסדר בוקר</string>
+    <string name="tpl_morning_items">גילוח\nמדים נקיים\nמיטה מסודרת\nמימייה מלאה</string>
+    <string name="tpl_weapon_name">מסדר נשק</string>
+    <string name="tpl_weapon_items">נשק נקי\nנשק פרוק\nמחסנית ריקה\nרצועה תקינה</string>
+    <string name="tpl_gear_name">בדיקת ציוד ויציאה</string>
+    <string name="tpl_gear_items">צל"ם חתום\nמשקפת\nתחבושת אישית\nמימייה\nכובע</string>
+    <string name="tpl_medical_name">מסדר רפואי</string>
+    <string name="tpl_medical_items">פטורים מעודכנים\nתרופות קבועות\nנעליים תקינות\nכוויות שמש</string>
+
+    <!-- settings -->
+    <string name="section_unit">מבנה היחידה</string>
+    <string name="label_commander">שם המפקד (נרשם על כל רישום בספירות)</string>
+    <string name="label_squads">כיתות (מופרדות בפסיק)</string>
+    <string name="import_csv">ייבוא חיילים מקובץ CSV</string>
+    <string name="import_csv_hint">עמודות: שם מלא, מספר אישי, טלפון, כיתה. מאקסל: שמור בשם ← CSV UTF-8.</string>
+    <string name="imported">יובאו %1$d חיילים</string>
+    <string name="import_failed">הייבוא נכשל</string>
+    <string name="section_display">תצוגה</string>
+    <string name="theme_system">לפי הגדרות המכשיר</string>
+    <string name="theme_day">יום (ניגודיות גבוהה)</string>
+    <string name="theme_night">לילה טקטי (שחור ואדום)</string>
+    <string name="section_security">אבטחה</string>
+    <string name="pin_on">נעילת קוד PIN פעילה</string>
+    <string name="pin_off">אין נעילת קוד PIN</string>
+    <string name="set_pin">קבע קוד PIN</string>
+    <string name="clear_pin">בטל קוד PIN</string>
+    <string name="pin_rules">לפחות 4 ספרות. האפליקציה תינעל אחרי 30 שניות ברקע.</string>
+    <string name="pin_too_short">הקוד קצר מדי</string>
+    <string name="label_wipe_days">מחיקה אוטומטית אחרי כמה ימי אי-שימוש (0 = כבוי)</string>
+    <string name="wipe_all">מחק את כל הנתונים</string>
+    <string name="confirm_wipe_all">למחוק את כל החיילים והרישומים מהמכשיר? אי אפשר לשחזר.</string>
+    <string name="wiped">הנתונים נמחקו</string>
+
+    <!-- lock -->
+    <string name="enter_pin">הזן קוד PIN</string>
+    <string name="unlock">פתח</string>
+    <string name="wrong_pin">קוד שגוי</string>
+</resources>

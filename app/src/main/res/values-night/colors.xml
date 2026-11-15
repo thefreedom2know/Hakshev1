@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tactical night: pure black background, dim red text, no white glare -->
+    <color name="hk_bg">#000000</color>
+    <color name="hk_surface">#140000</color>
+    <color name="hk_text">#E04848</color>
+    <color name="hk_primary">#5A0000</color>
+    <color name="hk_on_primary">#FF8A8A</color>
+    <color name="hk_outline">#802020</color>
+    <color name="hk_alert">#FF3030</color>
+    <color name="hk_ok">#B03030</color>
+    <color name="hk_warn">#C06020</color>
+</resources>
