@@ -42,7 +42,6 @@ public class RosterActivity extends BaseActivity {
         if (!edit) Nav.attach(this, R.id.nav_soldiers);
         findViewById(R.id.headerMain).setVisibility(edit ? View.GONE : View.VISIBLE);
         findViewById(R.id.titleEdit).setVisibility(edit ? View.VISIBLE : View.GONE);
-        findViewById(R.id.btnAdd).setVisibility(edit ? View.VISIBLE : View.GONE);
         findViewById(R.id.headerMain).setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
         spSquad = findViewById(R.id.spSquad);
         spStatus = findViewById(R.id.spStatus);
