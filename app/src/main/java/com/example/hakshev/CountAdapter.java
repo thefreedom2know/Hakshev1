@@ -64,15 +64,24 @@ public class CountAdapter extends RecyclerView.Adapter<CountAdapter.VH> {
         h.value.setTextColor(r.reached
                 ? ContextCompat.getColor(h.itemView.getContext(), R.color.hk_ok)
                 : h.title.getCurrentTextColor());
-        h.itemView.setOnClickListener(v -> listener.onClick(r));
+        h.itemView.setOnClickListener(v -> {
+            v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
+            listener.onClick(r);
+        });
         h.itemView.setOnLongClickListener(v -> {
             listener.onLongClick(r);
             return true;
         });
         h.minus.setVisibility(r.check ? View.GONE : View.VISIBLE);
         h.plus.setVisibility(r.check ? View.GONE : View.VISIBLE);
-        h.minus.setOnClickListener(v -> listener.onDelta(r, -1));
-        h.plus.setOnClickListener(v -> listener.onDelta(r, 1));
+        h.minus.setOnClickListener(v -> {
+            v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
+            listener.onDelta(r, -1);
+        });
+        h.plus.setOnClickListener(v -> {
+            v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
+            listener.onDelta(r, 1);
+        });
     }
 
     @Override

@@ -97,6 +97,13 @@ public final class SyncManager {
         }
     }
 
+    /** Same as {@link #syncIfDue(Context)}, and tells the caller when the sync finished. */
+    public static void syncIfDue(Context c, Listener l) {
+        if (!isJoined(c)) return;
+        if (System.currentTimeMillis() - SyncConfig.lastSyncAt(c) < AUTO_INTERVAL_MS) return;
+        sync(c, l);
+    }
+
     /** Syncs at most once a minute; used when screens open. */
     public static void syncIfDue(Context c) {
         if (!isJoined(c)) return;

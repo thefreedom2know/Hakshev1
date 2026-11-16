@@ -283,4 +283,8 @@
     <string name="sync_join_do">הצטרף</string>
     <string name="sync_have_code">יש לי קוד</string>
     <string name="sync_short_password">הסיסמה חייבת להיות לפחות 6 תווים</string>
+    <string name="sync_line_off">סנכרון: כבוי</string>
+    <string name="sync_line_wait">סנכרון: ממתין</string>
+    <string name="sync_line_ok">סנכרון: עודכן ב-%1$s</string>
+    <string name="sync_line_fail">סנכרון: נכשל, העבודה נשמרת במכשיר</string>
 </resources>

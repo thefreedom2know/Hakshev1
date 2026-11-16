@@ -102,11 +102,30 @@ public class RosterActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (!edit) SyncManager.syncIfDue(this);
+        if (!edit) {
+            updateSyncLine();
+            SyncManager.syncIfDue(this, (ok, msg) -> updateSyncLine());
+        }
         Db.IO.execute(() -> {
             if (!edit) Db.housekeeping(this);
             reload();
         });
+    }
+
+    private void updateSyncLine() {
+        TextView t = findViewById(R.id.tvSyncLine);
+        if (t == null || edit) return;
+        long last = SyncConfig.lastSyncAt(this);
+        if (!SyncConfig.hasUnit(this)) {
+            t.setText(R.string.sync_line_off);
+        } else if (!SyncConfig.lastError(this).isEmpty()) {
+            t.setText(R.string.sync_line_fail);
+        } else if (last == 0) {
+            t.setText(R.string.sync_line_wait);
+        } else {
+            t.setText(getString(R.string.sync_line_ok,
+                    java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT).format(new java.util.Date(last))));
+        }
     }
 
     /** Runs on the IO thread. */
