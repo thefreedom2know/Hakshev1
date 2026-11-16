@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tactical night: pure black background, dim red, no white glare -->
-    <color name="hk_bg">#000000</color>
-    <color name="hk_surface">#140404</color>
-    <color name="hk_text">#E85A5A</color>
-    <color name="hk_muted">#B04040</color>
-    <color name="hk_primary">#7A1212</color>
-    <color name="hk_on_primary">#FFC0C0</color>
-    <color name="hk_container">#2A0A0A</color>
-    <color name="hk_on_container">#FF9A9A</color>
-    <color name="hk_outline">#5A1A1A</color>
-    <color name="hk_card_stroke">#3A1010</color>
-    <color name="hk_alert">#FF3B3B</color>
-    <color name="hk_ok">#C04848</color>
-    <color name="hk_warn">#D07030</color>
-    <color name="hk_hero_start">#2A0A0A</color>
-    <color name="hk_hero_end">#2A0A0A</color>
-    <color name="hk_glass">#33FF6060</color>
+    <!-- Dark: deep graphite with a soft green accent -->
+    <color name="hk_bg">#0F1311</color>
+    <color name="hk_surface">#181E1A</color>
+    <color name="hk_text">#E6EAE4</color>
+    <color name="hk_muted">#A3ADA2</color>
+    <color name="hk_primary">#8FC06A</color>
+    <color name="hk_on_primary">#0E1A08</color>
+    <color name="hk_container">#263329</color>
+    <color name="hk_on_container">#D6E8CB</color>
+    <color name="hk_outline">#3A453D</color>
+    <color name="hk_card_stroke">#26302A</color>
+    <color name="hk_alert">#FF6B5E</color>
+    <color name="hk_ok">#7FC15A</color>
+    <color name="hk_warn">#E0A33A</color>
+    <color name="hk_hero">#1F3A2A</color>
+    <color name="hk_glass">#26FFFFFF</color>
 </resources>

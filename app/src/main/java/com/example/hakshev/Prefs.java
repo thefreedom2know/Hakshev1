@@ -18,6 +18,8 @@ public final class Prefs {
     public static final int THEME_SYSTEM = 0;
     public static final int THEME_DAY = 1;
     public static final int THEME_NIGHT = 2;
+    /** Black and dim red for night vision. */
+    public static final int THEME_RED = 3;
 
     private static SharedPreferences sp(Context c) {
         return c.getApplicationContext().getSharedPreferences("hakshev_prefs", Context.MODE_PRIVATE);
@@ -63,6 +65,7 @@ public final class Prefs {
                 mode = AppCompatDelegate.MODE_NIGHT_NO;
                 break;
             case THEME_NIGHT:
+            case THEME_RED:
                 mode = AppCompatDelegate.MODE_NIGHT_YES;
                 break;
             default:

@@ -207,8 +207,9 @@
     <string name="import_failed">הייבוא נכשל</string>
     <string name="section_display">תצוגה</string>
     <string name="theme_system">לפי הגדרות המכשיר</string>
-    <string name="theme_day">יום (ניגודיות גבוהה)</string>
-    <string name="theme_night">לילה טקטי (שחור ואדום)</string>
+    <string name="theme_day">יום</string>
+    <string name="theme_night">כהה</string>
+    <string name="theme_red">לילה אדום (שומר על ראיית לילה)</string>
     <string name="section_security">אבטחה</string>
     <string name="pin_on">נעילת קוד PIN פעילה</string>
     <string name="pin_off">אין נעילת קוד PIN</string>

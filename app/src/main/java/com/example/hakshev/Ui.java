@@ -76,37 +76,38 @@ public final class Ui {
     }
 
     private static final int[] PALETTE = {
-            0xFF4B5320, 0xFF3C4A56, 0xFF5E5238, 0xFF454B40,
-            0xFF2F4F3A, 0xFF4A4458, 0xFF5B4A3A, 0xFF384A5E};
+            0xFF4F8A5B, 0xFF3F7CAC, 0xFFB07A2A, 0xFF8A5FA8,
+            0xFFC25B4E, 0xFF2F8F8A, 0xFF7A8A3A, 0xFF6A7BB5};
 
-    /** Colored round avatar showing the first character (or emoji) of {@code text}. */
+    /** Soft tinted tile showing the first character of {@code text}. */
     public static void avatar(TextView tv, String text, String colorKey) {
         String t = text == null ? "" : text.trim();
         String first = t.isEmpty() ? "?" : new String(Character.toChars(t.codePointAt(0)));
+        int color = PALETTE[Math.abs(colorKey.hashCode()) % PALETTE.length];
         GradientDrawable g = new GradientDrawable();
         g.setShape(GradientDrawable.RECTANGLE);
-        g.setCornerRadius(6f * tv.getResources().getDisplayMetrics().density);
-        g.setColor(PALETTE[Math.abs(colorKey.hashCode()) % PALETTE.length]);
+        g.setCornerRadius(14f * tv.getResources().getDisplayMetrics().density);
+        g.setColor((color & 0x00FFFFFF) | 0x33000000);
         tv.setBackground(g);
-        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextColor(color);
         tv.setText(first);
     }
 
-    /** Rounded colored chip behind a status text. */
+    /** Soft tinted pill behind a status text. */
     public static void chip(TextView tv, int color) {
         GradientDrawable g = new GradientDrawable();
-        g.setCornerRadius(4f * tv.getResources().getDisplayMetrics().density);
-        g.setColor(color);
+        g.setCornerRadius(10f * tv.getResources().getDisplayMetrics().density);
+        g.setColor((color & 0x00FFFFFF) | 0x2E000000);
         tv.setBackground(g);
-        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextColor(color);
     }
 
     public static int statusColor(String status) {
-        if (Status.SICK.equals(status)) return 0xFFA86B12;
-        if (Status.DUTY.equals(status)) return 0xFF3C5A78;
-        if (Status.LEAVE.equals(status)) return 0xFF6B7066;
-        if (Status.PROBLEM.equals(status)) return 0xFFA82A22;
-        return 0xFF4B6B2E;
+        if (Status.SICK.equals(status)) return 0xFFC77D0A;
+        if (Status.DUTY.equals(status)) return 0xFF3F7CAC;
+        if (Status.LEAVE.equals(status)) return 0xFF7A8378;
+        if (Status.PROBLEM.equals(status)) return 0xFFD9453A;
+        return 0xFF3E9150;
     }
 
     public static int parseInt(CharSequence s, int fallback) {

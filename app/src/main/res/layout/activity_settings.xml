@@ -52,7 +52,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/hk_card_stroke" />
+                android:background="?attr/colorOutlineVariant" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -215,6 +215,13 @@
                     android:text="@string/theme_day" />
 
                 <RadioButton
+                    android:id="@+id/rbRed"
+                    style="@style/HkBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="@string/theme_red" />
+
+                <RadioButton
                     android:id="@+id/rbNight"
                     style="@style/HkBody"
                     android:layout_width="match_parent"
@@ -296,7 +303,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/hk_card_stroke" />
+                android:background="?attr/colorOutlineVariant" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnWipeAll"

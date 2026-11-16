@@ -56,10 +56,13 @@ public class SettingsActivity extends BaseActivity {
 
         RadioGroup rg = findViewById(R.id.rgTheme);
         int theme = Prefs.theme(this);
-        rg.check(theme == Prefs.THEME_DAY ? R.id.rbDay : theme == Prefs.THEME_NIGHT ? R.id.rbNight : R.id.rbSystem);
+        rg.check(theme == Prefs.THEME_DAY ? R.id.rbDay : theme == Prefs.THEME_NIGHT ? R.id.rbNight
+                : theme == Prefs.THEME_RED ? R.id.rbRed : R.id.rbSystem);
         rg.setOnCheckedChangeListener((group, id) -> {
-            int t = id == R.id.rbDay ? Prefs.THEME_DAY : id == R.id.rbNight ? Prefs.THEME_NIGHT : Prefs.THEME_SYSTEM;
+            int t = id == R.id.rbDay ? Prefs.THEME_DAY : id == R.id.rbNight ? Prefs.THEME_NIGHT
+                    : id == R.id.rbRed ? Prefs.THEME_RED : Prefs.THEME_SYSTEM;
             Prefs.setTheme(this, t);
+            recreate();
         });
 
         tvPinState = findViewById(R.id.tvPinState);

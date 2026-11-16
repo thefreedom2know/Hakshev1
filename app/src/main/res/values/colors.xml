@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Day: stone background, olive-drab accent, strong text contrast for sunlight -->
-    <color name="hk_bg">#ECEEE6</color>
-    <color name="hk_surface">#FAFAF7</color>
-    <color name="hk_text">#1A1F15</color>
-    <color name="hk_muted">#474E3D</color>
-    <color name="hk_primary">#3B4A2B</color>
+    <!-- Day: clean light surfaces, forest-green accent -->
+    <color name="hk_bg">#F3F4F1</color>
+    <color name="hk_surface">#FFFFFF</color>
+    <color name="hk_text">#14181A</color>
+    <color name="hk_muted">#5A645B</color>
+    <color name="hk_primary">#2E5E3E</color>
     <color name="hk_on_primary">#FFFFFF</color>
-    <color name="hk_container">#D9DECB</color>
-    <color name="hk_on_container">#1F2813</color>
-    <color name="hk_outline">#A9B09A</color>
-    <color name="hk_card_stroke">#C3C9B4</color>
-    <color name="hk_alert">#A82A22</color>
-    <color name="hk_ok">#3F6B2A</color>
-    <color name="hk_warn">#A86B12</color>
-    <color name="hk_hero_start">#2F3A22</color>
-    <color name="hk_hero_end">#2F3A22</color>
+    <color name="hk_container">#DDE9D6</color>
+    <color name="hk_on_container">#12301D</color>
+    <color name="hk_outline">#CBD1C4</color>
+    <color name="hk_card_stroke">#E1E5DB</color>
+    <color name="hk_alert">#B3261E</color>
+    <color name="hk_ok">#2E7D32</color>
+    <color name="hk_warn">#B26A00</color>
+    <color name="hk_hero">#2E5E3E</color>
     <color name="hk_glass">#26FFFFFF</color>
 </resources>
