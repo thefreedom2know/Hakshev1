@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Red night theme colours (must be resources: Material reads them as resource ids) -->
+    <color name="hkr_000000">#000000</color>
+    <color name="hkr_140404">#140404</color>
+    <color name="hkr_2a0a0a">#2A0A0A</color>
+    <color name="hkr_3a1010">#3A1010</color>
+    <color name="hkr_5a1a1a">#5A1A1A</color>
+    <color name="hkr_8a1a1a">#8A1A1A</color>
+    <color name="hkr_b04040">#B04040</color>
+    <color name="hkr_e85a5a">#E85A5A</color>
+    <color name="hkr_ff9a9a">#FF9A9A</color>
+    <color name="hkr_ffc8c8">#FFC8C8</color>
+</resources>
