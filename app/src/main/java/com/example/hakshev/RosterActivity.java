@@ -160,7 +160,9 @@ public class RosterActivity extends BaseActivity {
         squadFilter.add(getString(R.string.filter_all));
         squadFilter.addAll(squads);
         Ui.setSpinner(spSquad, this, squadFilter);
-        if (previous != null && squadFilter.contains(previous)) {
+        if (previous == null && !edit && !Prefs.mySquad(this).isEmpty() && squadFilter.contains(Prefs.mySquad(this))) {
+            spSquad.setSelection(squadFilter.indexOf(Prefs.mySquad(this)), false);
+        } else if (previous != null && squadFilter.contains(previous)) {
             spSquad.setSelection(squadFilter.indexOf(previous), false);
         }
     }
@@ -168,6 +170,7 @@ public class RosterActivity extends BaseActivity {
     private void applyFilter() {
         int sq = spSquad.getSelectedItemPosition();
         int st = spStatus.getSelectedItemPosition();
+        if (!edit && sq >= 0 && sq < squadFilter.size()) Prefs.setMySquad(this, sq == 0 ? "" : squadFilter.get(sq));
         filtered = new ArrayList<>();
         for (Soldier s : all) {
             if (sq > 0 && sq < squadFilter.size() && !squadFilter.get(sq).equals(s.squad)) continue;

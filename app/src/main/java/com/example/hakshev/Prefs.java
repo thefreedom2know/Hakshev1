@@ -34,6 +34,15 @@ public final class Prefs {
         sp(c).edit().putString("commander", v).apply();
     }
 
+    /** The squad/team this commander works with; the main list opens on it. Empty = all. */
+    public static String mySquad(Context c) {
+        return sp(c).getString("my_squad", "");
+    }
+
+    public static void setMySquad(Context c, String s) {
+        sp(c).edit().putString("my_squad", s).apply();
+    }
+
     // ---- squads ----
     public static List<String> squads(Context c) {
         String raw = sp(c).getString("squads", c.getString(R.string.default_squads));
