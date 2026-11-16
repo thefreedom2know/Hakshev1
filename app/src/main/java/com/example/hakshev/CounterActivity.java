@@ -125,6 +125,11 @@ public class CounterActivity extends BaseActivity {
                 .show();
     }
 
+    @Override
+    protected void onRemoteChange() {
+        Db.IO.execute(this::reload);
+    }
+
     private boolean isDone(long soldierId) {
         for (Counters.Row r : lastRows) if (r.soldierId == soldierId) return r.value > 0;
         return false;

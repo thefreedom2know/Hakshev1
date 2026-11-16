@@ -55,6 +55,11 @@ public class DutiesActivity extends BaseActivity {
     }
 
     @Override
+    protected void onRemoteChange() {
+        Db.IO.execute(this::reload);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         Db.IO.execute(this::reload);

@@ -154,6 +154,11 @@ public class SoldierActivity extends BaseActivity {
         if (soldierId != 0) Db.IO.execute(this::loadCounters);
     }
 
+    @Override
+    protected void onRemoteChange() {
+        if (soldierId != 0) Db.IO.execute(this::loadCounters);
+    }
+
     private CounterDef counterById(long id) {
         for (CounterDef c : myCounters) if (c.id == id) return c;
         return null;

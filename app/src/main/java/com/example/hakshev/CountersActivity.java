@@ -45,6 +45,11 @@ public class CountersActivity extends BaseActivity {
     }
 
     @Override
+    protected void onRemoteChange() {
+        onResume();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         Db.IO.execute(() -> {

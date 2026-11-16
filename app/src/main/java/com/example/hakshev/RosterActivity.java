@@ -111,6 +111,12 @@ public class RosterActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onRemoteChange() {
+        updateSyncLine();
+        Db.IO.execute(this::reload);
+    }
+
     private void updateSyncLine() {
         TextView t = findViewById(R.id.tvSyncLine);
         if (t == null || edit) return;

@@ -86,6 +86,50 @@ public final class SyncManager {
         });
     }
 
+    // ---- polling while the app is on screen ----
+    private static final long POLL_MS = 5_000;
+    private static volatile Runnable changeListener;
+    private static volatile Boolean lastOk;
+    private static Context pollContext;
+    private static final Runnable POLL = new Runnable() {
+        @Override
+        public void run() {
+            Context c = pollContext;
+            if (c == null) return;
+            if (SyncConfig.hasUnit(c) && !RUNNING.get()) sync(c, null);
+            MAIN.postDelayed(this, POLL_MS);
+        }
+    };
+
+    /** Main thread. Syncs every few seconds while any screen of the app is visible. */
+    public static void startPolling(Context c) {
+        MAIN.removeCallbacks(POLL);
+        pollContext = c.getApplicationContext();
+        MAIN.postDelayed(POLL, POLL_MS);
+    }
+
+    /** Main thread. */
+    public static void stopPolling() {
+        MAIN.removeCallbacks(POLL);
+        pollContext = null;
+    }
+
+    /** The visible screen is told (on the main thread) when other commanders' changes arrived. */
+    public static void setChangeListener(Runnable r) {
+        changeListener = r;
+    }
+
+    public static void clearChangeListener(Runnable r) {
+        if (changeListener == r) changeListener = null;
+    }
+
+    private static void notifyChange(boolean pulledSomething, boolean ok) {
+        boolean flipped = lastOk == null || lastOk != ok;
+        lastOk = ok;
+        Runnable r = changeListener;
+        if (r != null && (pulledSomething || flipped)) MAIN.post(r);
+    }
+
     /** Called after every change to the local data: syncs a few seconds later. */
     public static void requestSync(Context context) {
         Context c = context.getApplicationContext();
@@ -127,6 +171,7 @@ public final class SyncManager {
                 ok = true;
                 SyncConfig.setLastError(c, "");
                 msg = c.getString(R.string.sync_done, n[0], n[1]);
+                notifyChange(n[1] > 0, true);
             } catch (WrongCodeException e) {
                 ok = false;
                 msg = c.getString(R.string.sync_wrong_code);
@@ -137,7 +182,10 @@ public final class SyncManager {
             } finally {
                 RUNNING.set(false);
             }
-            if (!ok) SyncConfig.setLastError(c, msg);
+            if (!ok) {
+                SyncConfig.setLastError(c, msg);
+                notifyChange(false, false);
+            }
             if (listener != null) {
                 boolean fOk = ok;
                 String fMsg = msg;

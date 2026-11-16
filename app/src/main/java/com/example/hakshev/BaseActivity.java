@@ -14,6 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public abstract class BaseActivity extends AppCompatActivity {
     private static final long RELOCK_AFTER_MS = 30_000;
 
+    private final Runnable remoteChange = this::onRemoteChange;
+
+    /** Other commanders' changes arrived: reload what is on screen. Main thread. */
+    protected void onRemoteChange() {
+    }
+
     private static boolean unlocked = false;
     private static int startedCount = 0;
     private static long leftAt = 0;
@@ -39,6 +45,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             unlocked = false;
         }
         startedCount++;
+        SyncManager.setChangeListener(remoteChange);
+        if (startedCount == 1) SyncManager.startPolling(this);
         if (Prefs.hasPin(this) && !unlocked) {
             startActivity(new Intent(this, LockActivity.class));
         }
@@ -48,6 +56,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         startedCount--;
+        SyncManager.clearChangeListener(remoteChange);
+        if (startedCount <= 0) SyncManager.stopPolling();
         Prefs.touchActive(this);
         if (startedCount <= 0) {
             startedCount = 0;
