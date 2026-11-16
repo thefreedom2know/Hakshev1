@@ -4,16 +4,20 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- clipboard board -->
+    <!-- shield that is also a notebook page with a folded corner -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M34,28h40a4,4 0 0 1 4,4v48a4,4 0 0 1 -4,4h-40a4,4 0 0 1 -4,-4v-48a4,4 0 0 1 4,-4z" />
-    <!-- clip -->
+        android:fillColor="#FFF3F4F1"
+        android:pathData="M32,31 L62,31 L76,45 L76,57 C76,69 66,77 54,82 C42,77 32,69 32,57 Z" />
+    <!-- folded corner -->
     <path
-        android:fillColor="#9BB37A"
-        android:pathData="M44,22h20v10h-20z" />
-    <!-- check lines -->
+        android:fillColor="#FFA8D46F"
+        android:pathData="M62,31 L76,45 L62,45 Z" />
+    <!-- check mark -->
     <path
-        android:fillColor="#2E4A1F"
-        android:pathData="M40,44h28v4h-28z M40,56h28v4h-28z M40,68h18v4h-18z" />
+        android:fillColor="#00000000"
+        android:pathData="M43,57 L51,65 L66,50"
+        android:strokeColor="#FF2E5E3E"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="6" />
 </vector>
