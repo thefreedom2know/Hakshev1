@@ -19,6 +19,16 @@
         android:text="@string/counters_hint"
         android:textSize="15sp" />
 
+    <TextView
+        android:id="@+id/tvEmpty"
+        style="@style/HkBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="24dp"
+        android:text="@string/counters_empty"
+        android:visibility="gone" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"

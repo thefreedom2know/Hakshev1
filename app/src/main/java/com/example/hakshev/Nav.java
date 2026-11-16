@@ -16,6 +16,11 @@ final class Nav {
     private Nav() {}
 
     static void attach(Activity a, int selectedId) {
+        attach(a, selectedId, true);
+    }
+
+    /** {@code root} is false on screens opened from a tab (a counter, a soldier). */
+    static void attach(Activity a, int selectedId, boolean root) {
         ViewGroup content = a.findViewById(android.R.id.content);
         View old = content.getChildAt(0);
         content.removeView(old);
@@ -32,18 +37,16 @@ final class Nav {
         nav.setSelectedItemId(selectedId);
         nav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == selectedId) return true;
+            if (id == selectedId && root) return true;
             Class<?> target = id == R.id.nav_counters ? CountersActivity.class
                     : id == R.id.nav_duties ? DutiesActivity.class
                     : id == R.id.nav_inspections ? InspectionActivity.class
                     : id == R.id.nav_settings ? SettingsActivity.class
                     : RosterActivity.class;
             Intent i = new Intent(a, target);
-            if (target == RosterActivity.class) {
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            }
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             a.startActivity(i);
-            if (selectedId != R.id.nav_soldiers && target != RosterActivity.class) a.finish();
+            if ((!root || selectedId != R.id.nav_soldiers) && target != RosterActivity.class) a.finish();
             a.overridePendingTransition(0, 0);
             return true;
         });

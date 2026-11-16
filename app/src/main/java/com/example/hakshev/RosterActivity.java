@@ -26,6 +26,7 @@ public class RosterActivity extends BaseActivity {
     private TextView tvGreeting, tvPresent;
     private Spinner spSquad, spStatus;
     private TextView tvCount;
+    private String query = "";
     private SoldierAdapter adapter;
 
     private List<Soldier> all = new ArrayList<>();
@@ -46,6 +47,19 @@ public class RosterActivity extends BaseActivity {
         spSquad = findViewById(R.id.spSquad);
         spStatus = findViewById(R.id.spStatus);
         tvCount = findViewById(R.id.tvCount);
+        ((android.widget.EditText) findViewById(R.id.etSearch)).addTextChangedListener(new android.text.TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int a, int b, int c) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int a, int b, int c) {
+                query = s.toString().trim().toLowerCase(java.util.Locale.ROOT);
+                applyFilter();
+            }
+
+            @Override
+            public void afterTextChanged(android.text.Editable s) {}
+        });
 
         adapter = new SoldierAdapter(new SoldierAdapter.Listener() {
             @Override
@@ -173,7 +187,11 @@ public class RosterActivity extends BaseActivity {
         if (!edit && sq >= 0 && sq < squadFilter.size()) Prefs.setMySquad(this, sq == 0 ? "" : squadFilter.get(sq));
         filtered = new ArrayList<>();
         for (Soldier s : all) {
-            if (sq > 0 && sq < squadFilter.size() && !squadFilter.get(sq).equals(s.squad)) continue;
+            if (!query.isEmpty()) {
+                // a search looks through every squad
+                if (!s.fullName.toLowerCase(java.util.Locale.ROOT).contains(query)
+                        && !s.personalNumber.contains(query)) continue;
+            } else if (sq > 0 && sq < squadFilter.size() && !squadFilter.get(sq).equals(s.squad)) continue;
             if (st > 0 && !Status.ALL[st - 1].equals(s.status)) continue;
             filtered.add(s);
         }

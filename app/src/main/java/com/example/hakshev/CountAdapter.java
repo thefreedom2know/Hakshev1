@@ -72,8 +72,7 @@ public class CountAdapter extends RecyclerView.Adapter<CountAdapter.VH> {
             listener.onLongClick(r);
             return true;
         });
-        h.minus.setVisibility(r.check ? View.GONE : View.VISIBLE);
-        h.plus.setVisibility(r.check ? View.GONE : View.VISIBLE);
+        h.buttons.setVisibility(r.check ? View.GONE : View.VISIBLE);
         h.minus.setOnClickListener(v -> {
             v.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
             listener.onDelta(r, -1);
@@ -93,6 +92,7 @@ public class CountAdapter extends RecyclerView.Adapter<CountAdapter.VH> {
         final TextView title, sub, value, avatar;
         final com.google.android.material.progressindicator.LinearProgressIndicator progress;
         final MaterialButton minus, plus;
+        final View buttons;
 
         VH(View v) {
             super(v);
@@ -103,6 +103,7 @@ public class CountAdapter extends RecyclerView.Adapter<CountAdapter.VH> {
             value = v.findViewById(R.id.tvValue);
             minus = v.findViewById(R.id.btnMinus);
             plus = v.findViewById(R.id.btnPlus);
+            buttons = v.findViewById(R.id.rowButtons);
         }
     }
 }

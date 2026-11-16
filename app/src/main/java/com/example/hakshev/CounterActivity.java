@@ -29,6 +29,21 @@ public class CounterActivity extends BaseActivity {
     private CountAdapter adapter;
     private TextView tvTitle, tvRange;
     private List<Counters.Row> lastRows = new ArrayList<>();
+    private String query = "";
+
+    private void applySearch() {
+        if (query.isEmpty()) {
+            adapter.setItems(lastRows);
+            return;
+        }
+        List<Counters.Row> shown = new ArrayList<>();
+        for (Counters.Row r : lastRows) {
+            Soldier s = soldierById(r.soldierId);
+            if (s != null && (s.fullName.toLowerCase(java.util.Locale.ROOT).contains(query)
+                    || s.personalNumber.contains(query))) shown.add(r);
+        }
+        adapter.setItems(shown);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +52,20 @@ public class CounterActivity extends BaseActivity {
         counterId = getIntent().getLongExtra(EXTRA_ID, 0);
         tvTitle = findViewById(R.id.tvTitle);
         tvRange = findViewById(R.id.tvRange);
+        Nav.attach(this, R.id.nav_counters, false);
+        ((android.widget.EditText) findViewById(R.id.etSearch)).addTextChangedListener(new android.text.TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int a, int b, int c) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int a, int b, int c) {
+                query = s.toString().trim().toLowerCase(java.util.Locale.ROOT);
+                applySearch();
+            }
+
+            @Override
+            public void afterTextChanged(android.text.Editable s) {}
+        });
 
         adapter = new CountAdapter(new CountAdapter.Listener() {
             @Override
@@ -102,7 +131,7 @@ public class CounterActivity extends BaseActivity {
             }
             tvRange.setText(range);
             lastRows = rows;
-            adapter.setItems(rows);
+            applySearch();
         });
     }
 

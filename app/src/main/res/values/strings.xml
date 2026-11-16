@@ -121,7 +121,7 @@
 
     <!-- roster -->
     <string name="roster_count">מוצגים %1$d מתוך %2$d</string>
-    <string name="bulk_present">סמן נוכחות לכל המוצגים</string>
+    <string name="bulk_present">סמן נוכחות לכולם</string>
     <string name="add_soldier">הוסף חייל</string>
     <string name="confirm_bulk_present">לסמן %1$d חיילים כנוכחים?</string>
     <string name="badge_allergy">אלרגיה</string>
@@ -288,4 +288,9 @@
     <string name="sync_line_wait">סנכרון: ממתין</string>
     <string name="sync_line_ok">סנכרון: עודכן ב-%1$s</string>
     <string name="sync_line_fail">סנכרון: נכשל, העבודה נשמרת במכשיר</string>
+    <string name="search_hint">חיפוש לפי שם או מספר אישי</string>
+    <string name="counter_members_n">%1$d משתתפים</string>
+    <string name="counter_total_label">סה"כ בתקופה</string>
+    <string name="counter_target_n">יעד לחייל: %1$s</string>
+    <string name="counter_kind_check">סימון בוצע / לא בוצע</string>
 </resources>

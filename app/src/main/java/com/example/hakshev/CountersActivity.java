@@ -2,6 +2,7 @@ package com.example.hakshev;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +12,7 @@ import java.util.List;
 
 /** All counters the commander defined. */
 public class CountersActivity extends BaseActivity {
-    private TextAdapter adapter;
+    private CounterListAdapter adapter;
     private List<CounterDef> counters = new ArrayList<>();
 
     @Override
@@ -20,17 +21,8 @@ public class CountersActivity extends BaseActivity {
         setContentView(R.layout.activity_counters);
         Nav.attach(this, R.id.nav_counters);
 
-        adapter = new TextAdapter();
-        adapter.setListener(new TextAdapter.Listener() {
-            @Override
-            public void onClick(int position) {
-                if (position >= 0 && position < counters.size()) open(counters.get(position).id);
-            }
-
-            @Override
-            public void onLongClick(int position) {
-                onClick(position);
-            }
+        adapter = new CounterListAdapter(position -> {
+            if (position >= 0 && position < counters.size()) open(counters.get(position).id);
         });
         RecyclerView list = findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(this));
@@ -55,18 +47,25 @@ public class CountersActivity extends BaseActivity {
         Db.IO.execute(() -> {
             long now = System.currentTimeMillis();
             List<CounterDef> list = Db.dao(this).counters();
-            List<String> rows = new ArrayList<>();
+            List<CounterListAdapter.Item> rows = new ArrayList<>();
             for (CounterDef c : list) {
-                int members = Db.dao(this).members(c.id).size();
-                int total = Counters.groupTotal(this, c, now);
-                rows.add(c.name + " (" + Periods.label(this, c.period) + ")\n"
-                        + getString(R.string.counter_summary, members,
-                        Counters.valueText(unitOnly(c), total)));
+                CounterListAdapter.Item it = new CounterListAdapter.Item();
+                it.name = c.name;
+                it.period = Periods.label(this, c.period);
+                it.members = getString(R.string.counter_members_n, Db.dao(this).members(c.id).size());
+                if (c.kind == CounterDef.KIND_CHECK) {
+                    it.target = getString(R.string.counter_kind_check);
+                } else if (c.target > 0) {
+                    it.target = getString(R.string.counter_target_n,
+                            c.unit.isEmpty() ? String.valueOf(c.target) : c.target + " " + c.unit);
+                }
+                it.total = Counters.valueText(unitOnly(c), Counters.groupTotal(this, c, now));
+                rows.add(it);
             }
-            if (rows.isEmpty()) rows.add(getString(R.string.counters_empty));
             runOnUiThread(() -> {
                 counters = list;
                 adapter.setItems(rows);
+                findViewById(R.id.tvEmpty).setVisibility(rows.isEmpty() ? View.VISIBLE : View.GONE);
             });
         });
     }

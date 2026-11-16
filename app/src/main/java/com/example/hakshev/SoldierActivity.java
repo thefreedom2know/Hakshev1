@@ -50,6 +50,7 @@ public class SoldierActivity extends BaseActivity {
         setContentView(R.layout.activity_soldier);
         soldierId = getIntent().getLongExtra(EXTRA_ID, 0);
         boolean edit = getIntent().getBooleanExtra(EXTRA_EDIT, false) || soldierId == 0;
+        if (!edit) Nav.attach(this, R.id.nav_counters, false);
         findViewById(R.id.viewArea).setVisibility(edit ? View.GONE : View.VISIBLE);
         findViewById(R.id.editArea).setVisibility(edit ? View.VISIBLE : View.GONE);
 
