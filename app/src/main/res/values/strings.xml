@@ -235,7 +235,7 @@
     <string name="sync_create">יחידה חדשה פרטית</string>
     <string name="sync_join">הצטרף ליחידה</string>
     <string name="sync_now">סנכרן עכשיו</string>
-    <string name="sync_show_code">הצג קוד הצטרפות</string>
+    <string name="sync_show_code">הצג קוד</string>
     <string name="sync_leave">עזוב את היחידה המשותפת</string>
     <string name="sync_pick_json_hint">בחר את הקובץ google-services.json של פרויקט ה-Firebase שלכם.</string>
     <string name="sync_bad_json">הקובץ לא נראה כמו google-services.json.</string>

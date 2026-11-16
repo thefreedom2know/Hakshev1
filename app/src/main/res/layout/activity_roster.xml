@@ -93,6 +93,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
+            android:maxLines="2"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:textSize="15sp"
             android:text="@string/bulk_present" />
 
         <com.google.android.material.button.MaterialButton
@@ -102,6 +106,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
+            android:maxLines="2"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:textSize="15sp"
             android:text="@string/add_soldier" />
     </LinearLayout>
 </LinearLayout>
