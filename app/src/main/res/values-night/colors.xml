@@ -14,7 +14,7 @@
     <color name="hk_alert">#FF3B3B</color>
     <color name="hk_ok">#C04848</color>
     <color name="hk_warn">#D07030</color>
-    <color name="hk_hero_start">#5A0A0A</color>
-    <color name="hk_hero_end">#1A0000</color>
+    <color name="hk_hero_start">#2A0A0A</color>
+    <color name="hk_hero_end">#2A0A0A</color>
     <color name="hk_glass">#33FF6060</color>
 </resources>

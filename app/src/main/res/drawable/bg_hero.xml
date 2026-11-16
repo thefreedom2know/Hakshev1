@@ -6,5 +6,5 @@
         android:endColor="@color/hk_hero_end"
         android:startColor="@color/hk_hero_start"
         android:type="linear" />
-    <corners android:radius="28dp" />
+    <corners android:radius="6dp" />
 </shape>

@@ -34,7 +34,7 @@
 
     <!-- Screen title -->
     <style name="HkTitle" parent="">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
@@ -44,9 +44,10 @@
 
     <!-- Section header inside a screen -->
     <style name="HkSection" parent="">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.06</item>
         <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:paddingBottom">6dp</item>
@@ -57,7 +58,7 @@
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
-    <!-- Filled pill button, 56dp high -->
+    <!-- Filled flat button, 56dp high -->
     <style name="HkButton" parent="Widget.Material3.Button">
         <item name="android:minHeight">56dp</item>
         <item name="android:textSize">17sp</item>
@@ -65,10 +66,10 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="cornerRadius">28dp</item>
+        <item name="cornerRadius">6dp</item>
     </style>
 
-    <!-- Tonal (secondary) pill button -->
+    <!-- Tonal (secondary) flat button -->
     <style name="HkButtonOutlined" parent="Widget.Material3.Button.TonalButton">
         <item name="android:minHeight">56dp</item>
         <item name="android:textSize">17sp</item>
@@ -76,10 +77,10 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="cornerRadius">28dp</item>
+        <item name="cornerRadius">6dp</item>
     </style>
 
-    <!-- Round +/- buttons -->
+    <!-- Square +/- buttons -->
     <style name="HkStepButton" parent="Widget.Material3.Button.TonalButton">
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
@@ -88,22 +89,22 @@
         <item name="android:padding">0dp</item>
         <item name="android:textSize">26sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="cornerRadius">28dp</item>
+        <item name="cornerRadius">6dp</item>
     </style>
 
     <style name="HkCard" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">22dp</item>
-        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">6dp</item>
+        <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">?attr/colorSurface</item>
         <item name="strokeColor">@color/hk_card_stroke</item>
         <item name="strokeWidth">1dp</item>
     </style>
 
     <style name="HkField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxCornerRadiusTopStart">16dp</item>
-        <item name="boxCornerRadiusTopEnd">16dp</item>
-        <item name="boxCornerRadiusBottomStart">16dp</item>
-        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="boxCornerRadiusTopEnd">6dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusBottomEnd">6dp</item>
     </style>
 
     <style name="HkSpinner" parent="Widget.AppCompat.Spinner">

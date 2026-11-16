@@ -21,10 +21,10 @@
     <string name="n_soldiers">%1$d חיילים</string>
 
     <!-- dashboard hero and tiles -->
-    <string name="greeting">שלום, %1$s 👋</string>
+    <string name="greeting">שלום, %1$s</string>
     <string name="hero_present">נוכחים</string>
-    <string name="hero_counters">🔢 %1$d ספירות</string>
-    <string name="hero_alerts">⚠️ %1$d חריגים</string>
+    <string name="hero_counters">%1$d ספירות</string>
+    <string name="hero_alerts">%1$d חריגים</string>
     <string name="tile_counters">ספירות</string>
     <string name="tile_roster">חיילים</string>
     <string name="tile_duties">שמירות</string>
@@ -109,14 +109,14 @@
     <string name="remove_from_counter">הסר מהספירה</string>
     <string name="confirm_delete_entry">למחוק את הרישום?</string>
     <string-array name="counter_presets">
-        <item>💧 מימיות|DAY|4|מימיות</item>
-        <item>⏱️ שעות ביציאה|TOTAL|0|שעות</item>
-        <item>🛡️ שמירות נוספות|WEEK|0|</item>
-        <item>📝 מבחן ת.א|TOTAL|0||1|1</item>
-        <item>📝 מבחנים שעברו|TOTAL|0|</item>
-        <item>🔥 סש"ט|TOTAL|0||0|1</item>
-        <item>⚖️ עונשים והערות משמעת|TOTAL|0||0|2</item>
-        <item>🎓 נוכחות בשיעורים|WEEK|0|</item>
+        <item>מימיות|DAY|4|מימיות</item>
+        <item>שעות ביציאה|TOTAL|0|שעות</item>
+        <item>שמירות נוספות|WEEK|0|</item>
+        <item>מבחן ת.א|TOTAL|0||1|1</item>
+        <item>מבחנים שעברו|TOTAL|0|</item>
+        <item>סש"ט|TOTAL|0||0|1</item>
+        <item>עונשים והערות משמעת|TOTAL|0||0|2</item>
+        <item>נוכחות בשיעורים|WEEK|0|</item>
     </string-array>
 
     <!-- roster -->
