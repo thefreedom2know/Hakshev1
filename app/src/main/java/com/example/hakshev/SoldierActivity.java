@@ -121,6 +121,14 @@ public class SoldierActivity extends BaseActivity {
 
         if (soldierId == 0) {
             tvTitle.setText(R.string.new_soldier);
+            // Open the keyboard straight on the name field.
+            getWindow().setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            etName.requestFocus();
+            etName.post(() -> {
+                android.view.inputmethod.InputMethodManager imm = (android.view.inputmethod.InputMethodManager)
+                        getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
+                if (imm != null) imm.showSoftInput(etName, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);
+            });
             Ui.avatar(tvAvatar, "+", "new");
             findViewById(R.id.btnDelete).setVisibility(View.GONE);
             Ui.setSpinner(spSquad, this, squads);
