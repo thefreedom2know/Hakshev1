@@ -17,232 +17,298 @@
             android:text="@string/nav_settings" />
 
         <TextView
-            style="@style/HkTitle"
+            style="@style/HkSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/section_unit" />
 
-        <LinearLayout
-            android:id="@+id/formUnit"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/HkCard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSaveUnit"
-            style="@style/HkButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/save" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/formUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveUnit"
+                style="@style/HkButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/save" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/hk_card_stroke" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEditSoldiers"
                 style="@style/HkButton"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/edit_soldiers" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnImport"
                 style="@style/HkButtonOutlined"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/import_csv" />
-        </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/HkBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/import_csv_hint"
+                android:textSize="14sp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            style="@style/HkBody"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/import_csv_hint"
-            android:textSize="14sp" />
-
-        <TextView
-            style="@style/HkTitle"
+            style="@style/HkSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/section_sync" />
 
-        <TextView
-            android:id="@+id/tvSyncState"
-            style="@style/HkBody"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/HkCard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvSyncState"
+                style="@style/HkBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSyncCreate"
                 style="@style/HkButton"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/sync_create" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSyncJoin"
                 style="@style/HkButtonOutlined"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/sync_join" />
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSyncNow"
                 style="@style/HkButton"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/sync_now" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSyncCode"
                 style="@style/HkButtonOutlined"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/sync_show_code" />
-        </LinearLayout>
+            </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSyncLeave"
-            style="@style/HkButtonOutlined"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sync_leave" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSyncLeave"
+                style="@style/HkButtonOutlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/sync_leave" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            style="@style/HkTitle"
+            style="@style/HkSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/section_display" />
 
-        <RadioGroup
-            android:id="@+id/rgTheme"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/HkCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/rbSystem"
-                style="@style/HkBody"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="@string/theme_system" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <RadioButton
-                android:id="@+id/rbDay"
-                style="@style/HkBody"
+            <RadioGroup
+                android:id="@+id/rgTheme"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="@string/theme_day" />
+                android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/rbNight"
-                style="@style/HkBody"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="@string/theme_night" />
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/rbSystem"
+                    style="@style/HkBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="@string/theme_system" />
+
+                <RadioButton
+                    android:id="@+id/rbDay"
+                    style="@style/HkBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="@string/theme_day" />
+
+                <RadioButton
+                    android:id="@+id/rbNight"
+                    style="@style/HkBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="@string/theme_night" />
+
+            </RadioGroup>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            style="@style/HkTitle"
+            style="@style/HkSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/section_security" />
 
-        <TextView
-            android:id="@+id/tvPinState"
-            style="@style/HkBody"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/HkCard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvPinState"
+                style="@style/HkBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSetPin"
                 style="@style/HkButtonOutlined"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/set_pin" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnClearPin"
                 style="@style/HkButtonOutlined"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
                 android:text="@string/clear_pin" />
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/formSecurity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/formSecurity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSaveWipe"
                 style="@style/HkButton"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
                 android:text="@string/save" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/hk_card_stroke" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnWipeAll"
                 style="@style/HkButtonOutlined"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:text="@string/wipe_all"
-                android:textColor="@color/hk_alert" />
-        </LinearLayout>
+                android:layout_marginTop="8dp"
+                android:textColor="@color/hk_alert"
+                android:text="@string/wipe_all" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

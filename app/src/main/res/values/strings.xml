@@ -231,8 +231,8 @@
     <string name="sync_off">לא מחובר ליחידה משותפת. הנתונים נשארים רק במכשיר הזה.</string>
     <string name="sync_on">הנתונים נשמרים ב-Firebase ומוצפנים לפני שהם יוצאים מהמכשיר. מפקדים אחרים מצטרפים עם קוד הצטרפות. שמור את הקוד במקום בטוח: בלעדיו אי אפשר לשחזר את הנתונים במכשיר חדש.\nסנכרון אחרון: %1$s</string>
     <string name="sync_never">עדיין לא</string>
-    <string name="sync_create">צור יחידה משותפת</string>
-    <string name="sync_join">הצטרף עם קוד</string>
+    <string name="sync_create">יחידה חדשה פרטית</string>
+    <string name="sync_join">הצטרף ליחידה</string>
     <string name="sync_now">סנכרן עכשיו</string>
     <string name="sync_show_code">הצג קוד הצטרפות</string>
     <string name="sync_leave">עזוב את היחידה המשותפת</string>
@@ -277,4 +277,10 @@
     <string name="roster_empty_hint">אין עדיין חיילים. הוסף אותם דרך הגדרות ← עריכת נתוני חיילים.</string>
     <string name="default_for_all">ברירת מחדל לכל חייל: כל החיילים (גם חדשים) נכללים בספירה אוטומטית</string>
     <string name="cannot_remove_default">זו ספירת ברירת מחדל: כל החיילים נכללים בה. כדי להסיר, בטל את "ברירת מחדל" בעריכת הספירה.</string>
+    <string name="label_unit_name">שם היחידה</string>
+    <string name="label_unit_password">סיסמה (לפחות 6 תווים)</string>
+    <string name="sync_join_name_hint">כל המפקדים מזינים את אותו שם יחידה ואותה סיסמה, ורואים את אותם נתונים. אין צורך בקובץ או בקוד. הסיסמה מצפינה את הנתונים: בחרו סיסמה שקשה לנחש ושמרו אותה.</string>
+    <string name="sync_join_do">הצטרף</string>
+    <string name="sync_have_code">יש לי קוד</string>
+    <string name="sync_short_password">הסיסמה חייבת להיות לפחות 6 תווים</string>
 </resources>

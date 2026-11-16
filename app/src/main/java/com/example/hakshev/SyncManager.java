@@ -75,12 +75,8 @@ public final class SyncManager {
         Context c = context.getApplicationContext();
         if (SyncConfig.hasUnit(c) || SyncConfig.autoDisabled(c)) return;
         SYNC.execute(() -> {
-            try (java.io.InputStream in = c.getAssets().open("google-services.json")) {
-                java.io.ByteArrayOutputStream bos = new java.io.ByteArrayOutputStream();
-                byte[] buf = new byte[4096];
-                int n;
-                while ((n = in.read(buf)) > 0) bos.write(buf, 0, n);
-                SyncConfig cfg = SyncConfig.fromGoogleServices(bos.toString("UTF-8"));
+            try {
+                SyncConfig cfg = SyncConfig.fromAssets(c);
                 cfg.createUnit();
                 cfg.save(c);
             } catch (Exception e) {

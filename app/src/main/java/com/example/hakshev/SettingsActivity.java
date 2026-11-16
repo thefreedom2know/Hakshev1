@@ -87,6 +87,10 @@ public class SettingsActivity extends BaseActivity {
 
         tvSyncState = findViewById(R.id.tvSyncState);
         findViewById(R.id.btnSyncCreate).setOnClickListener(v -> {
+            if (SyncConfig.hasBundled(this)) {
+                createRandomUnit();
+                return;
+            }
             Ui.toast(this, R.string.sync_pick_json_hint);
             jsonPicker.launch(new String[]{"application/json", "application/octet-stream", "text/plain"});
         });
@@ -117,7 +121,7 @@ public class SettingsActivity extends BaseActivity {
         int on = joined ? android.view.View.VISIBLE : android.view.View.GONE;
         int off = joined ? android.view.View.GONE : android.view.View.VISIBLE;
         findViewById(R.id.btnSyncCreate).setVisibility(off);
-        findViewById(R.id.btnSyncJoin).setVisibility(off);
+        findViewById(R.id.btnSyncJoin).setVisibility(android.view.View.VISIBLE);
         findViewById(R.id.btnSyncNow).setVisibility(on);
         findViewById(R.id.btnSyncCode).setVisibility(on);
         findViewById(R.id.btnSyncLeave).setVisibility(on);
@@ -141,7 +145,67 @@ public class SettingsActivity extends BaseActivity {
         }
     }
 
+    /** Join with a unit name and a password: the same two words on every commander's phone. */
     private void joinDialog() {
+        if (!SyncConfig.hasBundled(this)) {
+            codeDialog();
+            return;
+        }
+        android.widget.LinearLayout box = new android.widget.LinearLayout(this);
+        box.setOrientation(android.widget.LinearLayout.VERTICAL);
+        int pad = (int) (16 * getResources().getDisplayMetrics().density);
+        box.setPadding(pad, pad / 2, pad, 0);
+        EditText etUnitName = Ui.addField(this, box, R.string.label_unit_name, "", InputType.TYPE_CLASS_TEXT);
+        EditText etPass = Ui.addField(this, box, R.string.label_unit_password, "",
+                InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        androidx.appcompat.app.AlertDialog dlg = new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.sync_join)
+                .setMessage(R.string.sync_join_name_hint)
+                .setView(box)
+                .setPositiveButton(R.string.sync_join_do, null)
+                .setNeutralButton(R.string.sync_have_code, (d, w) -> codeDialog())
+                .setNegativeButton(R.string.cancel, null)
+                .create();
+        dlg.setOnShowListener(x -> dlg.getButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE).setOnClickListener(b -> {
+            String name = etUnitName.getText().toString().trim();
+            String pass = etPass.getText().toString();
+            if (name.isEmpty()) {
+                etUnitName.setError(getString(R.string.name_required));
+                return;
+            }
+            if (pass.length() < 6) {
+                etPass.setError(getString(R.string.sync_short_password));
+                return;
+            }
+            try {
+                SyncConfig cfg = SyncConfig.fromNamePassword(this, name, pass);
+                cfg.save(this);
+                SyncConfig.setAutoDisabled(this, false);
+                dlg.dismiss();
+                updateSyncState();
+                syncNow();
+            } catch (Exception e) {
+                Ui.toast(this, R.string.sync_bad_code);
+            }
+        }));
+        dlg.show();
+    }
+
+    private void createRandomUnit() {
+        try {
+            SyncConfig cfg = SyncConfig.fromAssets(this);
+            cfg.createUnit();
+            cfg.save(this);
+            SyncConfig.setAutoDisabled(this, false);
+            updateSyncState();
+            syncNow();
+        } catch (Exception e) {
+            Ui.toast(this, R.string.sync_bad_json);
+        }
+    }
+
+    /** Join with a long code copied from another commander. */
+    private void codeDialog() {
         EditText et = new EditText(this);
         et.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         et.setMinLines(3);

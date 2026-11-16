@@ -116,6 +116,44 @@ public final class SyncConfig {
         return cfg;
     }
 
+    /** The Firebase project bundled inside the app (assets/google-services.json), if any. */
+    public static SyncConfig fromAssets(Context c) throws Exception {
+        try (java.io.InputStream in = c.getAssets().open("google-services.json")) {
+            java.io.ByteArrayOutputStream bos = new java.io.ByteArrayOutputStream();
+            byte[] buf = new byte[4096];
+            int n;
+            while ((n = in.read(buf)) > 0) bos.write(buf, 0, n);
+            return fromGoogleServices(bos.toString("UTF-8"));
+        }
+    }
+
+    public static boolean hasBundled(Context c) {
+        try {
+            fromAssets(c);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Unit from a name and a password that all commanders type in: nothing to import or paste.
+     * The unit id and the encryption key are both derived from them, so different groups never mix.
+     */
+    public static SyncConfig fromNamePassword(Context c, String name, String password) throws Exception {
+        SyncConfig cfg = fromAssets(c);
+        String n = name.trim().toLowerCase(java.util.Locale.ROOT);
+        java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+        byte[] h = md.digest(("hakshev-unit\0" + n + "\0" + password).getBytes(StandardCharsets.UTF_8));
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 16; i++) sb.append(String.format("%02x", h[i]));
+        cfg.unitId = sb.toString();
+        javax.crypto.SecretKeyFactory f = javax.crypto.SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+        cfg.secret = f.generateSecret(new javax.crypto.spec.PBEKeySpec(password.toCharArray(),
+                ("hakshev-salt\0" + n).getBytes(StandardCharsets.UTF_8), 120_000, 256)).getEncoded();
+        return cfg;
+    }
+
     /** A brand-new unit: random id and secret. */
     public void createUnit() {
         SecureRandom r = new SecureRandom();
