@@ -224,7 +224,9 @@ public class SoldierActivity extends BaseActivity {
     private void loadCounters() {
         Counters.ensureDefaults(this);
         List<CounterDef> mine = Db.dao(this).countersOf(soldierId);
-        List<Counters.Row> rows = Counters.soldierRows(this, soldier, mine, System.currentTimeMillis());
+        Soldier sNow = Db.dao(this).soldier(soldierId);
+        if (sNow == null) return;
+        List<Counters.Row> rows = Counters.soldierRows(this, sNow, mine, System.currentTimeMillis());
         runOnUiThread(() -> {
             myCounters = mine;
             countAdapter.setItems(rows);
