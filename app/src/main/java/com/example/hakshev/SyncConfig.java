@@ -70,6 +70,32 @@ public final class SyncConfig {
         sp(c).edit().putLong("pullSec", seconds).putInt("pullNano", nanos).apply();
     }
 
+    /** Cheap check (no Keystore access): is a unit stored on this phone? */
+    static boolean hasUnit(Context c) {
+        return !sp(c).getString("unitId", "").isEmpty();
+    }
+
+    private static SharedPreferences flags(Context c) {
+        return c.getApplicationContext().getSharedPreferences("hakshev_sync_flags", Context.MODE_PRIVATE);
+    }
+
+    /** True once the user left the unit on purpose: do not create one automatically again. */
+    static boolean autoDisabled(Context c) {
+        return flags(c).getBoolean("autoDisabled", false);
+    }
+
+    static void setAutoDisabled(Context c, boolean v) {
+        flags(c).edit().putBoolean("autoDisabled", v).apply();
+    }
+
+    static String lastError(Context c) {
+        return sp(c).getString("lastError", "");
+    }
+
+    static void setLastError(Context c, String e) {
+        sp(c).edit().putString("lastError", e).apply();
+    }
+
     static long lastSyncAt(Context c) {
         return sp(c).getLong("lastSyncAt", 0);
     }

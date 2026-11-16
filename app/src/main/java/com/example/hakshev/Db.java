@@ -95,6 +95,13 @@ public abstract class Db extends RoomDatabase {
                             .fallbackToDestructiveMigrationFrom(true, 1)
                             .addMigrations(MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6)
                             .build();
+                    instance.getInvalidationTracker().addObserver(new androidx.room.InvalidationTracker.Observer(
+                            "soldiers", "counters", "counter_members", "counter_entries", "duties", "tombstones") {
+                        @Override
+                        public void onInvalidated(java.util.Set<String> tables) {
+                            SyncManager.requestSync(app);
+                        }
+                    });
                 }
             }
         }
@@ -136,6 +143,6 @@ public abstract class Db extends RoomDatabase {
     /** Deletes everything stored locally. Call on {@link #IO}. */
     public static void wipeAll(Context c) {
         get(c).clearAllTables();
-        SyncManager.leave(c);
+        SyncManager.leave(c, false);
     }
 }

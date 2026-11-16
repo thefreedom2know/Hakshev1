@@ -108,9 +108,12 @@ public class SettingsActivity extends BaseActivity {
     private void updateSyncState() {
         boolean joined = SyncManager.isJoined(this);
         long last = SyncConfig.lastSyncAt(this);
-        tvSyncState.setText(joined
+        String state = joined
                 ? getString(R.string.sync_on, last == 0 ? getString(R.string.sync_never) : Ui.dateTime(last))
-                : getString(R.string.sync_off));
+                : getString(R.string.sync_off);
+        String err = SyncConfig.lastError(this);
+        if (joined && !err.isEmpty()) state += "\n" + err;
+        tvSyncState.setText(state);
         int on = joined ? android.view.View.VISIBLE : android.view.View.GONE;
         int off = joined ? android.view.View.GONE : android.view.View.VISIBLE;
         findViewById(R.id.btnSyncCreate).setVisibility(off);

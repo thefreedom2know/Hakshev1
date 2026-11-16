@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "985499017315",
+    "firebase_url": "https://hakshev-26821-default-rtdb.firebaseio.com",
+    "project_id": "hakshev-26821",
+    "storage_bucket": "hakshev-26821.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985499017315:android:99ef2d3ae793f9e873d856",
+        "android_client_info": {
+          "package_name": "com.example.hakshev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4nHv7FbXLY8Ee_pzhs7McPOsCdhoiRl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

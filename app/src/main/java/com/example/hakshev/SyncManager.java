@@ -48,6 +48,9 @@ public final class SyncManager {
 
     private static final ExecutorService SYNC = Executors.newSingleThreadExecutor();
     private static final AtomicBoolean RUNNING = new AtomicBoolean(false);
+    private static volatile boolean again;
+    private static final long DEBOUNCE_MS = 3_000;
+    private static final Runnable[] PENDING = new Runnable[1];
     private static final Handler MAIN = new Handler(Looper.getMainLooper());
     private static final String APP_NAME = "unit";
     private static final long AUTO_INTERVAL_MS = 60_000;
@@ -63,6 +66,41 @@ public final class SyncManager {
         return SyncConfig.load(c).joined();
     }
 
+    /**
+     * First start: when the app contains a Firebase config (assets/google-services.json) and no
+     * unit exists yet, a private unit is created and syncing starts. Other commanders join it
+     * with the join code from the settings screen.
+     */
+    public static void autoStart(Context context) {
+        Context c = context.getApplicationContext();
+        if (SyncConfig.hasUnit(c) || SyncConfig.autoDisabled(c)) return;
+        SYNC.execute(() -> {
+            try (java.io.InputStream in = c.getAssets().open("google-services.json")) {
+                java.io.ByteArrayOutputStream bos = new java.io.ByteArrayOutputStream();
+                byte[] buf = new byte[4096];
+                int n;
+                while ((n = in.read(buf)) > 0) bos.write(buf, 0, n);
+                SyncConfig cfg = SyncConfig.fromGoogleServices(bos.toString("UTF-8"));
+                cfg.createUnit();
+                cfg.save(c);
+            } catch (Exception e) {
+                return; // no bundled config: the user can still set it up in the settings
+            }
+            sync(c, null);
+        });
+    }
+
+    /** Called after every change to the local data: syncs a few seconds later. */
+    public static void requestSync(Context context) {
+        Context c = context.getApplicationContext();
+        if (!SyncConfig.hasUnit(c)) return;
+        synchronized (PENDING) {
+            if (PENDING[0] != null) MAIN.removeCallbacks(PENDING[0]);
+            PENDING[0] = () -> sync(c, null);
+            MAIN.postDelayed(PENDING[0], DEBOUNCE_MS);
+        }
+    }
+
     /** Syncs at most once a minute; used when screens open. */
     public static void syncIfDue(Context c) {
         if (!isJoined(c)) return;
@@ -73,6 +111,7 @@ public final class SyncManager {
     public static void sync(Context context, Listener listener) {
         Context c = context.getApplicationContext();
         if (!RUNNING.compareAndSet(false, true)) {
+            again = true;
             if (listener != null) MAIN.post(() -> listener.onDone(true, c.getString(R.string.sync_running)));
             return;
         }
@@ -83,6 +122,7 @@ public final class SyncManager {
                 int[] n = run(c);
                 SyncConfig.setLastSyncAt(c, System.currentTimeMillis());
                 ok = true;
+                SyncConfig.setLastError(c, "");
                 msg = c.getString(R.string.sync_done, n[0], n[1]);
             } catch (WrongCodeException e) {
                 ok = false;
@@ -94,17 +134,29 @@ public final class SyncManager {
             } finally {
                 RUNNING.set(false);
             }
+            if (!ok) SyncConfig.setLastError(c, msg);
             if (listener != null) {
                 boolean fOk = ok;
                 String fMsg = msg;
                 MAIN.post(() -> listener.onDone(fOk, fMsg));
             }
+            if (again && ok) {
+                again = false;
+                sync(c, null);
+            }
+            again = false;
         });
     }
 
     /** Forgets the unit on this phone. Data stays on the phone and in the cloud. */
     public static void leave(Context c) {
+        leave(c, true);
+    }
+
+    /** {@code disableAuto}: do not create a new unit by itself at the next start. */
+    public static void leave(Context c, boolean disableAuto) {
         SyncConfig.clear(c);
+        SyncConfig.setAutoDisabled(c, disableAuto);
         try {
             FirebaseApp app = FirebaseApp.getInstance(APP_NAME);
             FirebaseAuth.getInstance(app).signOut();

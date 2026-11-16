@@ -7,5 +7,6 @@ public class HakshevApp extends Application {
     public void onCreate() {
         super.onCreate();
         Prefs.applyTheme(this);
+        SyncManager.autoStart(this);
     }
 }
