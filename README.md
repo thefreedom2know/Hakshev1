@@ -91,3 +91,14 @@ A counter can convert into another one, e.g. 3 of "סש"ט" become 1 of "another
 set "המרה" on the first counter. When a soldier reaches the number, that many are taken off and he
 gets 1 in the target counter (created automatically if it does not exist). Deleting an entry later
 does not undo a conversion.
+
+## Web version (iPhone + Android) — `web/`
+A static PWA with the same screens, counters, conversions, duties, inspections, reports and sync as the
+Android app. No build step. Same Firebase unit: join with the same unit name + password (or join code)
+and the Android phones and the web app see the same data.
+
+- Deploy on Netlify: connect the GitHub repo, no build command, publish directory `web` (see `netlify.toml`).
+- Run locally: `cd web && python -m http.server 8765`, then open http://localhost:8765
+- Install: Android Chrome menu > "Install app"; iPhone Safari > Share > "Add to Home Screen".
+- Data is kept in the browser's IndexedDB on each device; sync goes through Firestore (records are encrypted
+  on the device before upload). Firebase Authentication > Anonymous must stay enabled.

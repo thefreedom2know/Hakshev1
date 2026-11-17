@@ -1,0 +1,14 @@
+# Netlify: serve the web version of the app from the "web" folder. No build step.
+[build]
+  publish = "web"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
